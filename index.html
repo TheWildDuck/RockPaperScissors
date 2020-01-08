@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Rock Paper Scissors</title>
+    </head>
+    <body>
+<script>
+    let values = ["Rock", "Paper", "Scissors"];
+    let computerCount; // counting number of wins by Computer
+    let playerCount; //counting number of wins by Player
+    let gameCount; //counting number of games played
+        function computerPlay(values){
+
+          values = [Math.random()*values.length]//Computer generates random String from (Rock,Paper,Scissor)
+        }
+        
+        function playRound(playerHand, computerHand){
+            playerHand=playerHand.toUpperCase(); //makes the function insensitive by converting it to uppercase
+            computerHand=computerHand.toUpperCase(); // makes the function insensitve by converting it to uppercase
+            if(playerHand == computerHand){
+                gameCount++;
+                return ("You both DRAW")
+            }
+            
+            else if (playerHand == "ROCK" && computerHand == "PAPER")
+            {
+            computerCount++;
+            gameCount++;
+            return ("YOU LOST! Paper beats Rock");  
+            }
+            else if (playerHand == "ROCK" && computerHand =="SCISSORS")
+            {
+                playerCount++;
+                gameCount++;
+                return ("YOU WON! Rock beats Scissors");
+            }
+            else if (playerHand == "PAPER" && computerHand == "ROCK")
+            {
+                playerCount++;
+                gameCount++;
+                return ("YOU WON! Paper beats Rock");
+            }
+            else if (playerHand == "PAPER" && computerHand == "Scissors"){
+                gameCount++;
+                 return ("YOU LOST! Scissors  beat Paper");
+            }
+            else if (playerHand == "Scissors" && computerHand =="Rock"){
+                gameCount++;
+                return("YOU LOST! Rock beats Scissors");
+            }
+            else if (playerHand == "Scissors" && computerHand =="Paper"){
+                gameCount++;
+                return ("YOU WON! Scissors beat Paper");
+            }
+                else {
+                    return("Invalid String");
+            }
+}
+
+ const playerHand = "Rock";
+ const computerHand = computerPlay();
+ console.log(playerHand, computerHand)
+
+
+
+
+
+
+
+</script>
+    </body>
+</html>
