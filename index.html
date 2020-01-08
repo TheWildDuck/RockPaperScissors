@@ -6,12 +6,11 @@
     </head>
     <body>
 <script>
-    let values = ["Rock", "Paper", "Scissors"];
+      let values = ["Rock", "Paper", "Scissors"];
     let computerCount; // counting number of wins by Computer
     let playerCount; //counting number of wins by Player
     let gameCount; //counting number of games played
-        function computerPlay(values){
-
+        function computerPlay(){         
           values = [Math.random()*values.length]//Computer generates random String from (Rock,Paper,Scissor)
         }
         
@@ -59,7 +58,7 @@
 }
 
  const playerHand = "Rock";
- const computerHand = computerPlay();
+  computerHand = computerPlay(values);
  console.log(playerHand, computerHand)
 
 
