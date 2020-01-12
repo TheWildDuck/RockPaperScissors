@@ -6,81 +6,89 @@
     </head>
     <body>
 <script>
-      let values = ["Rock", "Paper", "Scissors"];
-    let computerCount = 0; // counting number of wins by Computer
-    let playerCount = 0; //counting number of wins by Player
-    let gameCount = 1; //counting number of games played
-        function computerPlay(){         
-          let valueIndex = Math.floor(Math.random()*values.length);//Computer generates random String from (Rock,Paper,Scissor)
-           return values[valueIndex];
+
+    let values = ["Rock", "Paper", "Scissors"];
+    let computerCount = 0; 
+    let playerCount = 0; 
+    let gameCount = 1; 
+
+        //computerPlay generates a random string from (Rock,Paper,Scissor)
+    function computerPlay(){         
+            let valueIndex = Math.floor(Math.random()*values.length);
+            return values[valueIndex];
         }
-        
-        function playRound(playerHand, computerHand){
-            playerHand=playerHand.toUpperCase(); //makes the function insensitive by converting it to uppercase
-            computerHand=computerHand.toUpperCase(); // makes the function insensitve by converting it to uppercase
-            if(playerHand == computerHand){
+        //playRound plays a round of Rock paper scissors  and based on the player's choice and computers random generated choice returns an outcome
+    function playRound(playerHand, computerHand){
+            playerHand=playerHand.toUpperCase(); 
+            computerHand=computerHand.toUpperCase(); 
+
+
+    if(playerHand == computerHand){
             
-                return ("You both DRAW")
+            return ("You both DRAW")
             }
             
-            else if (playerHand == "ROCK" && computerHand == "PAPER")
+    else if (playerHand == "ROCK" && computerHand == "PAPER")
             {
             computerCount++;
          
             return ("YOU LOST! Paper beats Rock");  
             }
-            else if (playerHand == "ROCK" && computerHand =="SCISSORS")
+    else if (playerHand == "ROCK" && computerHand =="SCISSORS")
             {
-                playerCount++;
+            playerCount++;
                
-                return ("YOU WON! Rock beats Scissors");
+            return ("YOU WON! Rock beats Scissors");
             }
-            else if (playerHand == "PAPER" && computerHand == "ROCK")
+    else if (playerHand == "PAPER" && computerHand == "ROCK")
             {
-                playerCount++;
+            playerCount++;
               
-                return ("YOU WON! Paper beats Rock");
+            return ("YOU WON! Paper beats Rock");
             }
-            else if (playerHand == "PAPER" && computerHand == "SCISSORS"){
-                computerCount++;
+    else if (playerHand == "PAPER" && computerHand == "SCISSORS"){
+            computerCount++;
                 
-                 return ("YOU LOST! Scissors  beat Paper");
+            return ("YOU LOST! Scissors  beat Paper");
             }
-            else if (playerHand == "SCISSORS" && computerHand =="ROCK"){
-                computerCount++;
+    else if (playerHand == "SCISSORS" && computerHand =="ROCK"){
+            computerCount++;
                 
-                return("YOU LOST! Rock beats Scissors");
+            return("YOU LOST! Rock beats Scissors");
             }
-            else if (playerHand == "SCISSORS" && computerHand =="PAPER"){
-                playerCount++;
+    else if (playerHand == "SCISSORS" && computerHand =="PAPER"){
+            playerCount++;
                 
-                return ("YOU WON! Scissors beat Paper");
+            return ("YOU WON! Scissors beat Paper");
             }
-                else {
-                    return("Invalid String");
+    else {
+            return("Invalid String");
+            }   
+            
             }
-}
-
-        function game(){
-           while(gameCount <= 5){
+            //Game function plays 5 rounds of rock paper scissors and based on the points the player and computer have prints out who won 
+            // it also prints out the standings after each round
+    function game(){
+        while(gameCount <= 5){
             computerHand = computerPlay();
             computerHand = computerHand.toUpperCase();
             playerHand = prompt("Rock Paper or Scissors").toUpperCase();
             console.log(playRound(playerHand , computerHand));
             gameCount++;
-           console.log ("The Score is " +playerCount + "  :  " + computerCount );
+            console.log ("The Score is " +playerCount + "  :  " + computerCount );
+        }
+        if (playerCount > computerCount){
+            console.log("YOU WIN "  + "Player: " +playerCount + " Computer " + computerCount )
            }
-           if (playerCount > computerCount){
-               console.log("YOU WIN "  + "Player: " +playerCount + " Computer " + computerCount )
-           }
-           else if (computerCount > playerCount)
+        else if (computerCount > playerCount)
            {
-               console.log("YOU LOST "  + "Player: " +playerCount + " Computer " + computerCount )
+            console.log("YOU LOST "  + "Player: " +playerCount + " Computer " + computerCount )
            }
-           else 
+        else 
            console.log("You DRAW!")
         }
-       game()
+       game() 
+            //OPEN THE CONSOLE TO SEE RESULTS!!!!!
 
 
 
